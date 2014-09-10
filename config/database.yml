@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  database: which_doctor_development
+
+test:
+  adapter: postgresql
+  database: which_doctor_test
+
