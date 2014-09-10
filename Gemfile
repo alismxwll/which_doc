@@ -9,6 +9,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'textacular'
+gem 'bcrypt-ruby', '~> 3.1.5'
 
 group :development do
   gem 'better_errors'
