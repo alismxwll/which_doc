@@ -1,4 +1,4 @@
-class QuestionController < ApplicationController
+class QuestionsController < ApplicationController
   def index
     @questions = Question.all
   end
@@ -15,6 +15,7 @@ class QuestionController < ApplicationController
     else
       flash[:alert] = "No Bueno."
       render 'new'
+    end
   end
 
   def show
@@ -41,5 +42,10 @@ class QuestionController < ApplicationController
     @question.destroy
       flash[:notice] = "Question Deleted."
       redirect_to questions_path
+  end
+
+  private
+  def question_params
+    params.require(:question).permit(:user_id, :title, :content).merge(:user_id => current_user.id)
   end
 end
