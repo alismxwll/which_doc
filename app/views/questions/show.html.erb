@@ -10,3 +10,7 @@
                                  :method => "delete"},
                                  :class => "btn btn-primary" %>
 <% end %>
+
+<%= link_to "Make a Suggestion", new_question_answer_path(@question),
+                                :class => "btn btn-primary",
+                                :id => "new_suggestion", remote: true %>

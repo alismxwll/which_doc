@@ -10,7 +10,10 @@ class AnswersController < ApplicationController
     @answer = Answer.create(answer_params)
     if @answer.valid?
       flash[:notice] = "Thank you for your answer."
-      redirect_to question_path(@question)
+      respond_to do |format|
+        format.html { redirect_to question_path(@question) }
+        format.js
+      end
     else
       flash[:alert] = "No Bueno."
       render new_question_answer_path(@question)
