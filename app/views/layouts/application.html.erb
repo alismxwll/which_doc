@@ -8,9 +8,14 @@
 </head>
 <body>
 
+<div id="nav-bar"><%= link_to "Home", questions_path %> | <%= link_to "Ask Question", new_question_path %></div>
+
+
 <% if current_user %>
   Logged in as <%= current_user.email %>.
+  <%= link_to "Profile", user_path(current_user) %>
   <%= link_to "Log Out", logout_path %>
+  nav_bar
 <% else %>
   <%= link_to "Sign Up", signup_path %> or
   <%= link_to "Log In", login_path %>
