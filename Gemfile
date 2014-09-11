@@ -7,7 +7,6 @@ gem 'sass-rails', '>= 3.2'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'textacular'
 gem 'bcrypt-ruby', '~> 3.1.5'
 

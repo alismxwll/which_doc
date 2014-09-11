@@ -30,14 +30,23 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to question_path(@question) }
+      format.js
+    end
   end
 
   def update
+    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
     if @answer.update(answer_params)
       flash[:notice] = "Answer Edited."
-      redirect_to question_path(@question)
+      respond_to do |format|
+        format.html { redirect_to question_path(@question) }
+        format.js
+      end
     else
       flash[:alert] = "No Bueno."
       render edit_question_answer_path(@question)
@@ -45,6 +54,7 @@ class AnswersController < ApplicationController
   end
 
   def destroy
+    @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:id])
     @answer.destroy
     flash[:notice] = "Your Answer Has Been Deleted."

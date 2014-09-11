@@ -1,2 +1,6 @@
-<li><input type="checkbox"> <%= answer.content %> </li>
-
+<div id="editing-form">
+  <li>
+    <input type="checkbox"> <%= answer.content %>
+    <%= link_to "(edit)", edit_question_answer_path(@question, answer), :id => "edit_answer_#{answer.id}", remote: true %>
+  </li>
+</div>
