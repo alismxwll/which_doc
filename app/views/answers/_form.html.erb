@@ -1,6 +1,6 @@
 <%= render 'layouts/error', :object => @answer %>
 
-<%= form_for [@question, @answer] do |f| %>
+<%= form_for [@question, @answer], remote: true do |f| %>
   <div class="form-group">
     <%= f.label :content %>
     <%= f.text_area :content %>
