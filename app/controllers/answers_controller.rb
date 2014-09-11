@@ -58,7 +58,10 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     @answer.destroy
     flash[:notice] = "Your Answer Has Been Deleted."
-    redirect_to question_path(@question)
+    respond_to do |format|
+      format.html { redirect_to questions_path}
+      format.js
+    end
   end
 
 private
