@@ -1,9 +1,37 @@
+body {
+  background-color: #E0A474 !important;
+  color: black !important;
+}
+
 #nav-bar {
   float: right;
+}
+
+.header {
+  margin-top: 3%;
+  max-width: 100%;
+  height: auto;
+  border: solid black 3px;
 }
 
 ul {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
+}
+
+a:hover {
+  color: #3E5657 !important;
+}
+
+a:active {
+  color: #3E5657 !important;
+}
+
+a:visited {
+  color: black !important;
+}
+
+a:link {
+  color: black !important;
 }

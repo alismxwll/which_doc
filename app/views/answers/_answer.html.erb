@@ -1,6 +1,10 @@
 <div id="editing-form">
   <li>
-    <input type="checkbox"> <%= answer.content %>
+    <% if current_user.id == @question.user_id %>
+      <input type="checkbox" id="favorite">
+    <% end %>
+
+    <%= answer.content %>
     <%= link_to "(edit)", edit_question_answer_path(@question, answer), :id => "edit_answer_#{answer.id}", remote: true %>
     <%= link_to "(remove)", question_answer_path(@question, answer), :id => "delete_answer_#{answer.id}", method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
   </li>
