@@ -2,7 +2,12 @@ class AnswersController < ApplicationController
   before_filter :authorize
 
   def new
+    @question = Question.find(params[:question_id])
     @answer = Answer.new
+    respond_to do |format|
+      format.html { redirect_to question_path(@question) }
+      format.js
+    end
   end
 
   def create
@@ -45,4 +50,11 @@ class AnswersController < ApplicationController
     flash[:notice] = "Your Answer Has Been Deleted."
     redirect_to question_path(@question)
   end
+
+private
+  def answer_params
+    params.require(:answer).permit(:question_id, :content).merge(:user_id => current_user.id)
+  end
+
 end
+
