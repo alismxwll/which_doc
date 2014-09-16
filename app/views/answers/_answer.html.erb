@@ -1,11 +1,18 @@
 <div id="editing-form">
-  <li>
-    <% if current_user.id == @question.user_id %>
-      <input type="checkbox" id="favorite">
-    <% end %>
-
-    <%= answer.content %>
-    <%= link_to "(edit)", edit_question_answer_path(@question, answer), :id => "edit_answer_#{answer.id}", remote: true %>
-    <%= link_to "(remove)", question_answer_path(@question, answer), :id => "delete_answer_#{answer.id}", method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+  <li id='answer_line_<%= answer.id %>'>
+    <div class="row">
+      <div class="col-xs-1">
+        <% if current_user.id == @question.user_id %>
+          <%= form_for [@question, answer], remote: true do |f| %>
+            <%= f.check_box :favorite, :answer_id => answer.id, :class => 'edit_answer' %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-xs-11">
+        <%= answer.content %>
+        <%= link_to "(edit)", edit_question_answer_path(@question, answer), :id => "edit_answer_#{answer.id}", remote: true %>
+        <%= link_to "(remove)", question_answer_path(@question, answer), :id => "delete_answer_#{answer.id}", method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+      </div>
+    </div>
   </li>
 </div>
