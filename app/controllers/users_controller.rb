@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_url, notice: "Thank you for signing up!"
     else
+      flash[:alert] = "No Bueno"
       render "new"
     end
   end
