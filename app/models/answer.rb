@@ -5,4 +5,6 @@ class Answer < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :question
+
+  scope :favorite_answer, -> { where(favorite: true) }
 end

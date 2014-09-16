@@ -3,6 +3,15 @@
 <p><%= @question.content %></p>
 <br>
 
+<div class='favorite_thing'>
+  <% @question.answers.each do |answer| %>
+    <% if answer.favorite == true %>
+      <h3>Favorite Answer:</h3>
+      <%= answer.content %>
+    <% end %>
+  <% end %>
+</div>
+
 <div id="answer">
   <ul id="old_list">
     <%= render @question.answers %>
