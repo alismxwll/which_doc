@@ -1,5 +1,5 @@
 $(function () {
-  $('.edit_answer input[type=checkbox]').click(function () {
-    alert('clicked');
+  $('.edit_answer input[type=radio]').click(function () {
+    $(this).parent('form').submit();
   });
 });

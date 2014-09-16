@@ -4,7 +4,7 @@
       <div class="col-xs-1">
         <% if current_user.id == @question.user_id %>
           <%= form_for [@question, answer], remote: true do |f| %>
-            <%= f.check_box :favorite, :answer_id => answer.id, :class => 'edit_answer' %>
+            <%= f.radio_button :favorite, true, :answer_id => answer.id, :class => 'edit_answer' %>
           <% end %>
         <% end %>
       </div>
